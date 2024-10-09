@@ -4,16 +4,16 @@ This project provides several Python scripts that implement AES encryption and d
 
 ## Version Overview
 
-1. **AES-CBC with Manual Key and IV (`Encryption-V1.py`)**  
+1. **AES-CBC with Manual Key and IV (`PyGuardian-V1.py`)**  
    This version requires the user to manually input a 32-byte key and a 16-byte IV (Initialization Vector) in hexadecimal format. It uses AES in CBC mode, with data padding and base64 encoding of the encrypted output.
 
-2. **AES-CBC with Password-Derived Key and Auto IV (`Encryption-V2.py`)**  
+2. **AES-CBC with Password-Derived Key and Auto IV (`PyGuardian-V2.py`)**  
    This version improves upon V1 by deriving the encryption key from a user-provided password using PBKDF2. The IV is generated automatically, and encryption/decryption is handled through AES in CBC mode.
 
-3. **AES-CBC with Salted Password-Derived Key and Auto IV (Improved) (`Encryption-V2.1.py`)**  
+3. **AES-CBC with Salted Password-Derived Key and Auto IV (Improved) (`PyGuardian-V2.1.py`)**  
    Building on V2, this version adds password validation (e.g., length check), better error handling, and logging for easier troubleshooting. It uses salted password derivation for key generation and automatic IV generation, still using AES-CBC.
 
-4. **AES-GCM with Salted Password-Derived Key and Integrity Check (`Encryption-V3.py`)**  
+4. **AES-GCM with Salted Password-Derived Key and Integrity Check (`PyGuardian-V3.py`)**  
    This is the most secure version, using AES-GCM for encryption. AES-GCM provides both confidentiality and integrity verification through a tag. Like the previous versions, it derives the key from the password using PBKDF2 and adds logging for enhanced error tracing.
 
 ## Features
@@ -43,17 +43,17 @@ This project provides several Python scripts that implement AES encryption and d
 
 ## Usage
 
-### 1. AES-CBC with Manual Key and IV (`Encryption-V1.py`)
+### 1. AES-CBC with Manual Key and IV (`PyGuardian-V1.py`)
 
 This version requires you to provide a 32-byte key and a 16-byte IV in hexadecimal format.  
 **Steps**:
 - Run the script:
    ```bash
-   Encryption-V1.py
+   PyGuardian-V1.py
    ```
    or Run the .bat file
    ```
-   Encryption.bat
+   PyGuardian.bat
    ```
 
 
@@ -62,7 +62,7 @@ This version requires you to provide a 32-byte key and a 16-byte IV in hexadecim
 
 Example:
 ```bash
-$ python Encryption-V1.py
+$ python PyGuardian-V1.py
 Enter 32-byte key (hexadecimal): a0b1c2d3e4f5678910abcdef1234567890abcdef1234567890abcdef12345678
 Enter 16-byte IV (hexadecimal): 1234567890abcdef12345678
 Choose action (e: encrypt / d: decrypt / q: quit): e
@@ -70,24 +70,24 @@ Enter the data to encrypt (Unicode supported): Hello, World!
 Encrypted data: XXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-### 2. AES-CBC with Password-Derived Key and Auto IV (`Encryption-V2.py`)
+### 2. AES-CBC with Password-Derived Key and Auto IV (`PyGuardian-V2.py`)
 
 In this version, the key is derived from a password, and the IV is automatically generated.  
 **Steps**:
 - Run the script:
    ```bash
-   Encryption-V2.py
+   PyGuardian-V2.py
    ```
    or Run the .bat file
    ```
-   Encryption.bat
+   PyGuardian.bat
    ```
 - Enter a password to derive the encryption key.
 - Choose to either encrypt or decrypt data.
 
 Example:
 ```bash
-$ python Encryption-V2.py
+$ python PyGuardian-V2.py
 Enter your password: ********
 Key derived successfully from the password.
 Choose action (e: encrypt / d: decrypt / q: quit): e
@@ -95,38 +95,38 @@ Enter the data to encrypt (Unicode supported): Hello, World!
 Encrypted data: XXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-### 3. AES-CBC with Salted Password-Derived Key and Auto IV (Improved) (`Encryption-V2.1.py`)
+### 3. AES-CBC with Salted Password-Derived Key and Auto IV (Improved) (`PyGuardian-V2.1.py`)
 
 This version includes improvements like password validation and logging.  
 **Steps**:
 - Run the script:
    ```bash
-   Encryption-V2.1.py
+   PyGuardian-V2.1.py
    ```
    or Run the .bat file
    ```
-   Encryption.bat
+   PyGuardian.bat
    ```
 - Follow the same steps as in `V2.py`.
 
-### 4. AES-GCM with Salted Password-Derived Key and Integrity Check (`Encryption-V3.py`)
+### 4. AES-GCM with Salted Password-Derived Key and Integrity Check (`PyGuardian-V3.py`)
 
 This version uses AES-GCM, which provides both encryption and integrity verification.  
 **Steps**:
 - Run the script:
    ```bash
-   Encryption-V3.py
+   PyGuardian-V3.py
    ```
    or Run the .bat file
    ```
-   Encryption.bat
+   PyGuardian.bat
    ```
 - Enter a password to derive the encryption key.
 - Choose to either encrypt or decrypt data.
 
 Example:
 ```bash
-$ python Encryption-V3.py
+$ python PyGuardian-V3.py
 Enter your password: ********
 Key derived successfully from the password.
 Choose action (e: encrypt / d: decrypt / q: quit): e
