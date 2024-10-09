@@ -21,22 +21,26 @@ goto menu
 
 :runV1
 echo Running AES-CBC with Manual Key and IV (PyGuardian-V1.py)...
-python PyGuardian-V1.py
+set "SCRIPT_PATH=%~dp0PyGuardian-V1.py"
+python "%SCRIPT_PATH%"
 goto menu
 
 :runV2
 echo Running AES-CBC with Password-Derived Key and Auto IV (PyGuardian-V2.py)...
-python PyGuardian-V2.py
+set "SCRIPT_PATH=%~dp0PyGuardian-V2.py"
+python "%SCRIPT_PATH%"
 goto menu
 
 :runV21
 echo Running AES-CBC with Salted Password-Derived Key and Auto IV (PyGuardian-V2.1.py)...
-python PyGuardian-V2.1.py
+set "SCRIPT_PATH=%~dp0PyGuardian-V2.1.py"
+python "%SCRIPT_PATH%"
 goto menu
 
 :runV3
 echo Running AES-GCM with Salted Password-Derived Key and Integrity Check (PyGuardian-V3.py)...
-python PyGuardian-V3.py
+set "SCRIPT_PATH=%~dp0PyGuardian-V3.py"
+python "%SCRIPT_PATH%"
 goto menu
 
 :exit
