@@ -49,7 +49,7 @@ def encrypt_data(data: str, password: str) -> str:
         combined = VERSION + salt + iv + encrypted_data
         
         # Encode as base64
-        encoded = base64.b64encode(combined).decode('utf-8')
+        encoded = base64.b64encode(combined).decode('utf-8').replace("/", "-")
         
         logger.info("Data encrypted successfully.")
         return encoded
@@ -121,16 +121,16 @@ def main():
 
         try:
             if action == 'e':
-                data = input("Enter the data to encrypt (Unicode supported): ")
-                password = get_valid_password("Enter your password: ")
+                data = input("Enter the data to encrypt (Unicode supported):")
+                password = get_valid_password("Enter your password:")
                 result = encrypt_data(data, password)
-                print(f"Encrypted data: {result}")
+                print(f"Encrypted data:{result}")
 
             elif action == 'd':
-                data = input("Enter the base64-encoded data to decrypt: ")
-                password = get_valid_password("Enter your password: ")
+                data = input("Enter the base64-encoded data to decrypt:")
+                password = get_valid_password("Enter your password:")
                 result = decrypt_data(data, password)
-                print(f"Decrypted data: {result}")
+                print(f"Decrypted data:{result}")
 
         except EncryptionError as e:
             print(f"Operation failed: {str(e)}")
