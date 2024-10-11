@@ -60,6 +60,8 @@ def encrypt_data(data: str, password: str) -> str:
 def decrypt_data(encrypted_data: str, password: str) -> str:
     """Decrypt data with a password."""
     try:
+        # Replace "-" with "/" to reverse the earlier replacement
+        encrypted_data = encrypted_data.replace("-", "/")
         # Decode from base64
         decoded = base64.b64decode(encrypted_data)
         
@@ -100,7 +102,8 @@ def validate_password(password: str) -> bool:
 def get_valid_password(prompt: str) -> str:
     """Get a valid password from the user."""
     while True:
-        password = getpass.getpass(prompt)
+        password = input(prompt) #Remove or Comment this parameter For invisible password
+        #password = getpass.getpass(prompt) #Uncomment to enable vivible password
         if validate_password(password):
             return password
         print(f"Password must be at least {MIN_PASSWORD_LENGTH} characters long.")
