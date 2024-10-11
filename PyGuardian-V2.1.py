@@ -135,16 +135,22 @@ def main():
 
         try:
             if action == 'e':
-                data = input("Enter the data to encrypt (Unicode supported):")
-                password = get_valid_password("Enter your password:")
-                result = encrypt_data(data, password)
-                print(f"{GREEN}Encrypted data: {result}{RESET}")
+                while True:
+                    data = input("Enter the data to encrypt (or type 'ex' to go back): ")
+                    if data.lower() == 'ex':
+                        break
+                    password = get_valid_password("Enter your password: ")
+                    result = encrypt_data(data, password)
+                    print(f"{GREEN}Encrypted data:{result}{RESET}")
 
             elif action == 'd':
-                data = input("Enter the base64-encoded data to decrypt:")
-                password = get_valid_password("Enter your password:")
-                result = decrypt_data(data, password)
-                print(f"{BLUE}Decrypted data: {result}{RESET}")
+                while True:
+                    data = input("Enter the base64-encoded data to decrypt (or type 'ex' to go back): ")
+                    if data.lower() == 'ex':
+                        break
+                    password = get_valid_password("Enter your password: ")
+                    result = decrypt_data(data, password)
+                    print(f"{BLUE}Decrypted data:{result}{RESET}")
 
         except EncryptionError as e:
             print(f"{RED}Operation failed: {str(e)}{RESET}")
